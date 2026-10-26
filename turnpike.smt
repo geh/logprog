@@ -1,0 +1,65 @@
+(declare-const p1 Int)
+(declare-const p2 Int)
+(declare-const p3 Int)
+(declare-const p4 Int)
+(declare-const p5 Int)
+(declare-const p6 Int)
+
+(declare-const d11 Int)
+(declare-const d12 Int)
+(declare-const d21 Int)
+(declare-const d22 Int)
+(declare-const d31 Int)
+(declare-const d32 Int)
+
+
+(define-fun absdiff ((x1 Int) (x2 Int)) Int
+ (abs (- x1 x2))
+)
+
+(define-fun among ((x1 Int) (y1 Int) (y2 Int) (y3 Int) (y4 Int) (y5 Int) (y6 Int)) Bool
+      (or (= x1 y1)
+          (= x1 y2)
+          (= x1 y3)
+          (= x1 y4)
+          (= x1 y5)
+          (= x1 y6))
+)
+
+(define-fun da ((x1 Int) (x2 Int) (y1 Int) (y2 Int) (y3 Int) (y4 Int) (y5 Int) (y6 Int)) Bool
+     (and (distinct x1 x2)
+          (among x1 y1 y2 y3 y4 y5 y6)
+          (among x2 y1 y2 y3 y4 y5 y6))
+)
+
+(define-fun distance ((x1 Int)) Bool
+   (exists ((e1 Int) (e2 Int))
+           (and (da e1 e2 p1 p2 p3 p4 p5 p6) (= x1 (absdiff e1 e2)))
+   )
+)
+
+(assert (= p1 0))
+(assert (< p1 p2))
+(assert (< p2 p3))
+(assert (< p3 p4))
+(assert (< p4 p5))
+(assert (< p5 p6))
+(assert (distance 1))
+(assert (distance 2))
+(assert (distance 2))
+(assert (distance 2))
+(assert (distance 3))
+(assert (distance 3))
+(assert (distance 3))
+(assert (distance 4))
+(assert (distance 5))
+(assert (distance 5))
+(assert (distance 5))
+(assert (distance 6))
+(assert (distance 7))
+(assert (distance 8))
+(assert (distance 10))
+
+(check-sat)
+;(get-value (p1 p2 p3 p4 p5 p6))
+(get-model)
