@@ -8,7 +8,7 @@
 4. [Encodings], [CBMC1]
 5. [Task 2]
 6. [Task 3]
-7. [Resumen CBMC], [SMT1], [SMT2]
+7. [SMT]
 8. [Z3a], [Z3b], [Z3c]
 
 ## Examinations
@@ -29,7 +29,7 @@
 [Task 3]: task03.md
 [Encodings]: encodings.md
 [CBMC1]: PL03.md
-[SMT1]: PL04.md
+[SMT]: PL04.md
 [Z3a]: task04.md
 [Z3b]: task05.md
 [Z3c]: http://rise4fun.com/z3/tutorial/
