@@ -4,7 +4,7 @@
 
 1. [SAT]
 2. [DPLL]
-3. [Task 1]: n queens
+3. [Task 1]
 4. [Encodings], [CBMC1]
 5. [Task 2]
 6. [Task 3]
